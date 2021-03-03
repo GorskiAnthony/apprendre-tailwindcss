@@ -394,3 +394,33 @@ Ex :
 ![aec](/images/t3.png)
 
 👨‍🏫 Correction : [ici](https://play.tailwindcss.com/Q7YK7HKTxx)
+
+## Textes
+
+Ok, c'est sympa notre arc en ciel mais on ne fait pas encore réellement de CSS, avec du texte, du style etc.
+
+Concernant le texte, c'est comme le background-color. C'est à dire que nous avons les mêmes couleurs (voir la section bg)
+
+👨‍🎓 TP - Texte
+
+Ecrire 3 paragraphes ([lorem ipsum](https://www.lipsum.com/) suffit !) avec le background qui possède une couleur de nuance 100 et le texte la nuance 600 de la même couleur. N'hésitez pas à aérer vos div avec un padding ou margin.
+
+Ex:
+![bg and text](/images/bg-text.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/p9rWwOnPWk)
+
+## Le hover
+
+Pour ajouter du css sur le hover, Tailwind à mis à disposition une classe dédié qui est `hover:`
+
+Et, sur le même principe que pour le texte ou le background. J'ai les mêmes couleur à chaque fois.
+
+👨‍🎓 TP - Hover
+
+J'indique que sur le hover, je souhaite inverser les couleurs de mon backgroud-color et mon texte.
+
+Ex:
+![hover](/images/hover.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/3N4oujOzrW)
