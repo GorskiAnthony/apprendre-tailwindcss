@@ -424,3 +424,47 @@ Ex:
 ![hover](/images/hover.png)
 
 👨‍🏫 Correction : [ici](https://play.tailwindcss.com/3N4oujOzrW)
+
+## Les gradiants
+
+Pour insérer un gradient avec tailwind il faut utiliser la propriété
+
+-   `bg-gradient-to-`{valeur}
+-   `from-`blue-600. On commence à (from)
+-   `via-`purple-60. Si on souhaite une couleur intermédiaire
+-   `to-`blue-30. On fini à (to)
+
+Les propriétés de `bg-gradient-to-` sont les suivantes :
+
+| valeur | css          |
+| ------ | ------------ |
+| `t`    | top          |
+| `b`    | bottom       |
+| `r`    | right        |
+| `l`    | left         |
+| `tr`   | top-right    |
+| `tl`   | top-left     |
+| `br`   | bottom-right |
+| `bl`   | bottom-left  |
+
+## Texte Gradient
+
+Pour le texte gradient, nous allons faire un bg-gradient avec la direction.
+Ensuite on indique les 2 classes suivantes :
+
+-   `text-transparent`
+-   `bg-clip-text`
+
+![text gradient](/images/text-gradient.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/EKCqKJpVwX)
+
+## Responsive
+
+Tailwind est conçu pour être “mobile first”.
+
+C'est à dire que le CSS qu'on écrit est prévu de base pour les mobiles, ensuite, nous allons écrire le CSS pour les medias superieurs (Tablette, Desktop, TV)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/2aC5fqyz1u)
+
+![responsive](/images/responsive.png)
