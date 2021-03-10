@@ -468,3 +468,265 @@ C'est à dire que le CSS qu'on écrit est prévu de base pour les mobiles, ensui
 👨‍🏫 Correction : [ici](https://play.tailwindcss.com/2aC5fqyz1u)
 
 ![responsive](/images/responsive.png)
+
+## Grid
+
+Nous allons manipuler les grilles sur tailwind pour comprendre comment il fonctionne 😁
+
+Voilà déjà la documentation concernant les grilles : 
+
+![grid](/images/grid.png)
+
+Mais ça veut dire quoi ça ?
+
+Si nous faisons un tour sur leur éditeur !
+
+[Ici](https://play.tailwindcss.com/aQksJUCIsc) par exemple ! 
+
+Analysons la ligne suivante 
+
+```html
+<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+```
+
+Déjà, nous avons la classe : `grid` qui indique que ce qui suit sera sous forme de grille
+
+Ensuite `grid-cols-1`, ne l'oublions pas, tailwind est `mobile-first` donc, c'est le comportement par défaut si nous rajoutons rien !
+
+- `gap-4` c'est l'espace que doit avoir les éléments entre eux.
+
+- `sm:grid-cols-2` on vient de rajouter un média query ici qui comprend les écrans de petite taille (640px). On indique que pour les écrans qui ont au minimum 640px, ils auront 2 colonnes.
+
+donc, nos dis auront 2 comportements 
+  - 1 pour les écrans petit
+  - 1 pour les media qui ont au minimum 640px
+
+- `md:grid-cols-3` sur le même principe que ci-dessus
+
+- `md:gap-8` ce style sera appliqué que si l'écran et de taille md soit au minimum 768px.
+
+Ensuite, ce sont des divs 'classique'.
+
+Amusons nous maintenant avec les tailles !
+
+👨‍🎓 TP Grid
+
+Créer une grille de 1 colonne pour les mobiles, 3 colonnes pour les petits écrans et 6 colonnes pour les écrans moyens.
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/EFf1uqQNSF)
+
+⚠️ Pour la suite, on va tous partir du code suivant pour avoir la même base :
+
+```html
+<div class="min-h-screen flex items-center bg-gradient-to-b from-blue-600 to-purple-600">
+  <div class="flex-1 max-w-4xl mx-auto p-10">
+    <ul class="grid grid-cols-6 gap-8">
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+      <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
+    </ul>
+  </div>
+</div>
+```
+
+Pour changer la taille d'une colonne, nous allons utiliser la propriété CSS de tailwind qui est `col-span-{n}`. La [doc](https://tailwindcss.com/docs/grid-column) ici !
+
+{n} vaut un nombre entre 1 et 12, il existe 2 valeurs qui ne possède pas de chiffre, `auto` et `full`.
+
+Mais ça veut dire quoi ? Enfaite, ça veut dire que nous allons prendre {n} place dans notre grid !
+
+👨‍🎓 TP Span
+
+Jouer avec la taille des éléments pour que ça ressemble plus ou moins à ça :
+
+![tp-span](/images/tp-span.png)
+
+👨‍🏫 Correction : Voyons un exemple [ici](https://play.tailwindcss.com/Grm0yhyyPM)
+
+Ensuite, nous avons `col-{start/end}-{n}`. Ici, j'écris {start/end} car c'est la même choses pour le début et pour la fin. {n} on la vu plus haut mais sur les valeurs de {start/end} il y a le `13` en plus. Mais pourquoi 13 ? Si je fait 12 colonnes je suis censé allez jusqu'à 12 ? Et bien non ! Je t'invite à faire ce petit jeu sympa -> [grid garden](https://cssgridgarden.com/#fr) tu auras les bases pour comprendre le concept (après tu as la [doc](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout) mais c'est moins ludique !)
+
+
+Ici, nous avons un exemple avec `col-start-4` : [exemple](https://play.tailwindcss.com/kI8VvXynLW)
+
+Et le rendu avec l'affichage de la grille
+
+![display grid](/images/col-start-grid.png)
+
+Nous voyons bien qu'il commence à 4 comme indiqué ci dessus. Et vu que je ne lui ai pas donnée de l'argeur ni même de fin, alors il gared sa taille de base.
+
+Maintenant je vais lui ajouter une fin avec `col-end-6`, [exemple](https://play.tailwindcss.com/B5spZTm7Qm)
+
+![display grid](/images/col-end-grid.png)
+
+Et si je ne met pas de start, mais que la fin alors ça resemble à [ça](https://play.tailwindcss.com/8i5T6ftt3T)
+
+![display grid](/images/just-end-grid.png)
+
+Et maintenant, je vais aussi ajouter un `col-span-4` combiné avec `col-end-6` ça donne ce [résultat](https://play.tailwindcss.com/gDWsleM0Oi) !
+
+![display grid](/images/end-span-grid.png)
+
+C'est super ! On comprend comment fonctionne tailwind avec les grids sur les colonnes ! Mais sur les lignes, les `row` c'est pareil ? **Oui, absolument**, ce qui est valable pour les `col`, est aussi valable pour les `row`, [regardons](https://play.tailwindcss.com/2sp6VQmZWC) !
+
+![display grid](/images/row-grid.png)
+
+👨‍🎓 TP start/end
+
+Vous devez refaire la même chose que l'image ci dessous .
+
+![tp-span](/images/tp-start.png)
+
+👨‍🏫 Correction : Voyons une solution [ici](https://play.tailwindcss.com/kgH6NiFJGE)
+
+## Flexbox
+
+Concernant les flexbox, tailwind fait sensiblement la même chose que les grids.
+
+En effet, nous devons indiquer sur la div parent que les éléments sont flex, et leur ajouter des classes pour quelles correspondent à ce que je veux. 
+
+Voilà de la doc et voilà LA [doc](https://tailwindcss.com/docs/flex-direction) !
+
+
+![display grid](/images/flex.png)
+![display grid](/images/flex-direction.png)
+![display grid](/images/flex-wrap.png)
+![display grid](/images/flex-order.png)
+
+Quelques petits exo avant un petit challenge !
+
+**Utilisation du flex**
+
+[Ici](https://play.tailwindcss.com/h4WGjlDnI1) nous allons manipuler le flex.
+
+Comment je fais ? J'indique dans la div parent (la plus haute) que mes enfants soit flex.
+
+Ensuite nous avons les directions :
+
+**Justify-{alignement}**
+
+| Alignement                                         | valeur par defaut |
+| :------------------------------------------------- | :---------------- |
+| [start](https://play.tailwindcss.com/o7LoIob0bp)   | [x]               |
+| [center](https://play.tailwindcss.com/VQ6KvvMGO7)  |                   |
+| [end](https://play.tailwindcss.com/2dS0W69tN0)     |                   |
+| [between](https://play.tailwindcss.com/5tei7BnH9S) |                   |
+| [around](https://play.tailwindcss.com/HBPBMmi8Vn)  |                   |
+
+**items-{alignement}**
+
+| Alignement                                         | valeur par defaut |
+| :------------------------------------------------- | :---------------- |
+| [stretch](https://play.tailwindcss.com/HozYVKJMLS) | [x]               |
+| [start](https://play.tailwindcss.com/HozYVKJMLS)   |                   |
+| [center](https://play.tailwindcss.com/NFQmRXuRM5)  |                   |
+| [end](https://play.tailwindcss.com/3rfRwJeJXO)     |                   |
+
+
+**flex-{wrapMode}**
+
+| wrapMode                                                | valeur par defaut |
+| :------------------------------------------------------ | :---------------- |
+| [no-wrap](https://play.tailwindcss.com/N58nj06bJl)      | [x]               |
+| [wrap](https://play.tailwindcss.com/PXHUV6PrBS)         |                   |
+| [wrap-reverse](https://play.tailwindcss.com/E5x9EZdtEB) |                   |
+
+👨‍🎓 Challenge
+
+- Chaque cases doit occuper tout l'espace disponible 
+- Une grille 3x3 distribuée uniformément 
+- Les lettres doivent être centrées sur le carré 
+
+La base du code
+
+```html
+<div>
+  <div class="bg-green-100">A</div>
+  <div class="bg-green-200">B</div>
+  <div class="bg-green-300">C</div>
+  <div class="bg-green-400">D</div>
+  <div class="bg-green-500">E</div>
+  <div class="bg-green-600">F</div>
+  <div class="bg-green-700">G</div>
+  <div class="bg-green-800">H</div>
+  <div class="bg-green-900">I</div>
+</div>
+```
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/GRPsQSgJAo)
+
+<details>
+  <summary>Les étapes de mon raisonnement</summary>
+
+  1. Informer que mes enfants sont flex grâce à la classe `flex`
+  2. J'indique que je dois avoir 3 lignes de 3 cases. Rappelons nous qu'il existe la classe `w-1/3` grâce à la [doc](https://tailwindcss.com/docs/width)
+  3. C'est bien, mais maintenant il faut avertir que je souhaite retourner à la ligne si j'ai pas assez de place grâce à `flex-wrap`
+  4. J'indique que ma div global est 100vh et sur tailwind, je le dis avec `h-screen`
+  5. Pour centrer un élément on utilise le duo `justify-center` et `items-center`, mais pour que ça marche, il faut dire que chacun de mes éléments doit être `flex`
+  
+**Code final**
+
+```html
+<!-- Doit occuper tout l'espace disponible -->
+<!-- Une grille 3x3 distribuée uniformément -->
+<!-- Les lettres doivent être centrées sur le carré -->
+<div class="h-screen flex flex-wrap">
+  <div class="bg-green-100 w-1/3 flex justify-center items-center">A</div>
+  <div class="bg-green-200 w-1/3 flex justify-center items-center">B</div>
+  <div class="bg-green-300 w-1/3 flex justify-center items-center">C</div>
+  <div class="bg-green-400 w-1/3 flex justify-center items-center">D</div>
+  <div class="bg-green-500 w-1/3 flex justify-center items-center">E</div>
+  <div class="bg-green-600 w-1/3 flex justify-center items-center">F</div>
+  <div class="bg-green-700 w-1/3 flex justify-center items-center">G</div>
+  <div class="bg-green-800 w-1/3 flex justify-center items-center">H</div>
+  <div class="bg-green-900 w-1/3 flex justify-center items-center">I</div>
+</div>
+
+```
+</details>
+
+👨‍🎓 TP Form
+
+Créer l'input suivant
+
+![tp 5](/images/tp-5.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/KudpoSLnAC)
+
+<details>
+  <summary>Les étapes de mon raisonnement</summary>
+
+  1. Je créer une div qui prend en hauteur 100vh (`h-screen`), elle est `flex`, puis j'indique la direction avec `flex-col` et je centre avec `justify-center items-center`
+  2. Je créer un `label` un `input` et un `button` sans rien.
+  3. Le label
+     1. J'indique que le text est gray et en bold, je rajoute `select-none` comme ça je ne peux pas selectionner le label
+  4. L'input
+     1. Je met une marge top, un effet de shadow et les bords arrondies
+     2. Je grossie sa taille grâce à `w-4/6` et je met des paddings
+     3. Ensuite je met le texte en gris
+     4. Un focus en blue
+     5. et le placeholder en indigo
+  5. Le button
+     1. Marge top avec les paddings qui vont avec
+     2. couleur bleu foncée 
+     3. le texte en blanc 
+     4. arrondie
+  
+**Code final**
+
+```html
+<div class="h-screen flex flex-col justify-center items-center">
+  <label for="full_name" class="text-gray-700 text-sm font-bold select-none">Nom Prénom</label>
+  <input id="full_name" placeholder="Bob l'éponge" class="mt-2 shadow border rounded-lg w-4/6 px-3 py-2 text-gray-700 focus:bg-blue-100 placeholder-indigo-300" />
+  <button class="mt-2 px-3 py-2 bg-blue-900 text-blue-100 rounded-lg">Go!</button>
+</div>
+```
+</details>
