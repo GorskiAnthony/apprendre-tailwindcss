@@ -730,3 +730,57 @@ Créer l'input suivant
 </div>
 ```
 </details>
+
+👨‍🎓 TP Carte employée
+
+Créer la carte suivante : 
+
+![tp 5](/images/tp-6.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/UnrXpDmvQb)
+
+<details>
+  <summary>Les étapes de mon raisonnement</summary>
+
+  1. J'indique que ma carte sera centré, nous avons l'habitude
+     1. `bg-gray-600` `flex justify-center items-center` `h-screen`
+  2. Ensuite, j'indique que ma carte fera 66% de largeur aussi en flex avec la direction colonne
+  3. Je m'occupe étage par étage
+     1. Le titre 
+     2. La localisation
+     3. La description
+     4. Le footer
+  
+**Code final**
+
+```html
+<div class="bg-gray-600 flex justify-center items-center h-screen">
+  <div class="w-2/3 flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="bg-gray-200 text-gray-700 text-lg px-6 py-4">Développeur Web</div>
+
+    <div class="flex justify-between items-center px-6 py-4">
+      <div class="bg-yellow-600 text-xs uppercase px-2 py-1 rounded-full border border-gray-200 text-gray-200 font-bold">Salon en provence</div>
+      <div class="text-sm">11 Mars 2021</div>
+    </div>
+
+    <div class="px-6 py-4 border-t border-gray-200">
+      <div class="border rounded-lg p-4 bg-gray-200">Développeur web. <br />
+      Ma spécialité est le Javascript autant frontend que backend.</div>
+    </div>
+
+    <div class="bg-gray-200 px-6 py-4">
+      <div class="uppercase text-xs text-gray-600 font-bold">Employé</div>
+
+      <div class="flex items-center pt-3">
+        <div class="bg-blue-700 w-12 h-12 flex justify-center items-center rounded-full uppercase font-bold text-white">AG</div>
+        <div class="ml-4">
+          <p class="font-bold">Anthony Gorski</p>
+          <p class="text-sm text-gray-700 mt-1">Formateur</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+```
+</details>
