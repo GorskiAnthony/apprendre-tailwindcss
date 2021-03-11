@@ -518,8 +518,8 @@ Créer une grille de 1 colonne pour les mobiles, 3 colonnes pour les petits écr
 ⚠️ Pour la suite, on va tous partir du code suivant pour avoir la même base :
 
 ```html
-<div class="min-h-screen flex items-center bg-gradient-to-b from-blue-600 to-purple-600">
-  <div class="flex-1 max-w-4xl mx-auto p-10">
+<div class="h-screen flex items-center bg-gradient-to-b from-blue-600 to-purple-600">
+  <div class="flex-1 p-10">
     <ul class="grid grid-cols-6 gap-8">
       <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
       <li class="bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
@@ -550,7 +550,7 @@ Jouer avec la taille des éléments pour que ça ressemble plus ou moins à ça 
 
 ![tp-span](/images/tp-span.png)
 
-👨‍🏫 Correction : Voyons un exemple [ici](https://play.tailwindcss.com/Grm0yhyyPM)
+👨‍🏫 Correction : Voyons un exemple [ici](https://play.tailwindcss.com/DdPAdNFguH)
 
 Ensuite, nous avons `col-{start/end}-{n}`. Ici, j'écris {start/end} car c'est la même choses pour le début et pour la fin. {n} on la vu plus haut mais sur les valeurs de {start/end} il y a le `13` en plus. Mais pourquoi 13 ? Si je fait 12 colonnes je suis censé allez jusqu'à 12 ? Et bien non ! Je t'invite à faire ce petit jeu sympa -> [grid garden](https://cssgridgarden.com/#fr) tu auras les bases pour comprendre le concept (après tu as la [doc](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout) mais c'est moins ludique !)
 
@@ -731,13 +731,44 @@ Créer l'input suivant
 ```
 </details>
 
+👨‍🎓 TP First card
+
+Créer la carte suivante : 
+
+![tp 8](/images/tp-8.png)
+
+👨‍🏫 Correction : [ici](https://play.tailwindcss.com/548UviwQDq)
+
+<details>
+  <summary>Les étapes de mon raisonnement</summary>
+
+  1. Je créer une div avec un padding et j'indique que pour les ecrans au dela de 768px la carte fait 33%
+  2. Je met le bg et les paddings pour faire jolie
+  3. Je met du style dans mes ecriture pour faire jolie (la [doc](https://tailwindcss.com/docs/font-family))
+  
+**Code final**
+
+```html
+<div class="p-4 md:w-1/3">
+  <div class="bg-gray-100 px-8 pt-16 pb-24 rounded-lg text-center">
+    <h2 class="tracking-widest text-xs font-medium text-gray-400 mb-1">CATEGORY</h2>
+    <h1 class="sm:text-2xl text-xl font-medium text-gray-900 mb-3">Lorem ipsum</h1>
+    <p class="leading-relaxed mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At neque ullam magnam nemo eos, inventore doloremque ab omnis cumque minus soluta consectetur dicta!</p>
+    <a class="text-green-500 items-center">Lorem Ipsum </a>
+  </div>
+</div>
+```
+</details>
+
 👨‍🎓 TP Carte
 
 Créer la carte suivante : 
 
-![tp 5](/images/tp-6.png)
+![tp 6](/images/tp-6.png)
 
 👨‍🏫 Correction : [ici](https://play.tailwindcss.com/w8OdBAMl6j)
+
+👨‍🏫 Ici avec un exemple de responsive : [ici](https://play.tailwindcss.com/ELvcUE8AZJ)
 
 <details>
   <summary>Les étapes de mon raisonnement</summary>
@@ -771,7 +802,6 @@ Créer la carte suivante :
     </div>
   </div>
 </div>
-
 ```
 </details>
 
@@ -779,7 +809,7 @@ Créer la carte suivante :
 
 Créer la carte suivante : 
 
-![tp 5](/images/tp-7.png)
+![tp 7](/images/tp-7.png)
 
 le code SVG des quottes
 
@@ -819,3 +849,13 @@ le code SVG des quottes
 </div>
 ```
 </details>
+
+
+## Les images
+
+Pas grand chose de plus à dire par rapport à la [doc](https://tailwindcss.com/docs/object-fit). Il faut essayer d'importer une photo et tenter de manipuler avec ça ! 
+
+![obj fit](/images/object-fit.png)
+![obj position](/images/object-position.png)
+
+Et pour plus de fun, il y a un [visuel](https://play.tailwindcss.com/HIp9cTWl2I) qui va permettre de manipuler les images.
